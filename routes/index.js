@@ -1,11 +1,9 @@
 import express from 'express'
+import userRoutes from './user'
+
 const router = express.Router()
 
-router.get('/', (req,res) => {
-  res.json({
-    message: "Welcome to Blogify!"
-  })
-})
+router.use('/user', userRoutes)
 
 
 export default router
