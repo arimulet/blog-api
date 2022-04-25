@@ -2,9 +2,10 @@
   "name": "blogify-api",
   "version": "1.0.0",
   "description": "",
+  "type": "module",
   "main": "index.js",
   "scripts": {
-    "start": "nodemon --exec babel-node ./index.js",
+    "start": "nodemon --exec npx babel-node --experimental-specifier-resolution=node ./index.js",
     "eslint": "eslint ./src/**/*.js",
     "deploy": "git push heroku master"
   },
@@ -33,7 +34,7 @@
     "mysql": "^2.18.1",
     "mysql2": "^2.2.5",
     "nodemon": "^2.0.12",
-    "sequelize": "^6.6.5",
+    "sequelize": "^6.19.0",
     "uuid": "^8.3.2"
   },
   "devDependencies": {

@@ -1,7 +1,6 @@
 import express from 'express'
 import bodyParser from 'body-parser'
-import routes from './src/routes'
-// import { databaseSettings } from './src/config'
+import routes from './src/routes/index.js'
 const app = express()
 const PORT = process.env.PORT || 3000
 
@@ -12,6 +11,9 @@ app.use(bodyParser.urlencoded({ extended: false }))
 // parse application/json
 app.use(bodyParser.json())
 
+app.get('/keepalive', (req,res ) => {
+    res.send('OK')
+})
 app.use('/api', routes)
 
 app.listen(PORT, () => {

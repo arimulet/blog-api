@@ -5,6 +5,8 @@ on:
     branches: [master]
 
 jobs:
+
+
   deploy:
     runs-on: ubuntu-20.04
     environment: production
@@ -25,3 +27,5 @@ jobs:
           heroku_api_key: ${{secrets.HEROKU_APP_KEY}}
           heroku_app_name: ${{secrets.HEROKU_APP_NAME}}
           heroku_email: ${{secrets.HEROKU_APP_EMAIL}}
+          healthcheck: "https://${{secrets.HEROKU_APP_NAME}}.heroku.com/keepalive"
+          rollbackonhealthcheckfailed: true
