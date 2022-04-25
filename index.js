@@ -1,7 +1,7 @@
 import express from 'express'
 import bodyParser from 'body-parser'
-import routes from './routes'
-import { databaseSettings } from './config'
+import routes from './src/routes'
+// import { databaseSettings } from './src/config'
 const app = express()
 const PORT = process.env.PORT || 3000
 

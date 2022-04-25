@@ -1,0 +1,22 @@
+name: Blogify Deploy
+
+on:
+  push:
+    branches: [master]
+
+jobs:
+  deploy:
+    runs-on: ubuntu-20.04
+    steps:
+      - name: heroku deploy
+        uses: actions/checkout@v2
+        with:
+          fetch-depth: 0
+      - uses: actions/setup-node@v2
+        with:
+          node-version: '16'
+      - name: Install dependencies
+        run: npm install
+      - name: Test Lint
+        run: npm run eslint
+        

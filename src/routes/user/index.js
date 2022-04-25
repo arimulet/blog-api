@@ -61,7 +61,7 @@ router.post('/register', async (req,res) => {
       // can create user user now
       const passwordHash = Crypto.buildHash(password)
       
-      const registeredUser = await User.create({
+      await User.create({
         username,
         email,
         status: 0,
@@ -77,7 +77,7 @@ router.post('/register', async (req,res) => {
 
       const activationHash = Crypto.encrypt(activationBody)
 
-      const userActivation = await UserActivation.create({
+      await UserActivation.create({
         hash: emailHash,
         activated: false,
         user_email: email

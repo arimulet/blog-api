@@ -1,4 +1,5 @@
-const crypto = require('crypto');
+import crypto from 'crypto'
+import Buffer from 'buffer'
 
 const key = 'blogify'
 const algorithm = 'AES-256-CBC';
@@ -16,7 +17,6 @@ const encrypt = (text) => {
   }
 
     const cipher = crypto.createCipheriv(algorithm, secretKey, iv);
-
     const encrypted = Buffer.concat([cipher.update(stringData), cipher.final()]);
 
     return encrypted.toString('hex')
@@ -32,7 +32,7 @@ console.log( decrpyted.toString());
 };
 
 
-module.exports = {
+export default {
     encrypt,
     decrypt,
     buildHash    
