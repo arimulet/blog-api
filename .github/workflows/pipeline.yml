@@ -7,8 +7,9 @@ on:
 jobs:
   deploy:
     runs-on: ubuntu-20.04
+    environment: production
     steps:
-      - name: heroku deploy
+      - name: Checkout repo
         uses: actions/checkout@v2
         with:
           fetch-depth: 0
@@ -19,4 +20,8 @@ jobs:
         run: npm install
       - name: Test Lint
         run: npm run eslint
-        
+      - uses: akhileshns/heroku-deploy@v3.12.12
+        with:
+          heroku_api_key: ${{secrets.HEROKU_APP_KEY}}
+          heroku_app_name: ${{secrets.HEROKU_APP_NAME}}
+          heroku_email: ${{secrets.HEROKU_APP_EMAIL}}
